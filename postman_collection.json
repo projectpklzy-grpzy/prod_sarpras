@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "sarpras-api-collection",
+		"name": "SARPRAS API Collection",
+		"description": "API Collection for SARPRAS (Sarana Prasarana) Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"health"
+					]
+				}
+			}
+		},
+		{
+			"name": "Lahan",
+			"item": [
+				{
+					"name": "Get All Lahan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/lahan?limit=10&page=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lahan"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Lahan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama_lahan\": \"Area Kampus 1\",\n    \"luas_lahan\": 10000.50,\n    \"kepemilikan\": \"Milik Sendiri\",\n    \"harga_perolehan_lahan\": 5000000000.00\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/lahan",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lahan"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Lahan by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/lahan/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lahan",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Update Lahan",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama_lahan\": \"Area Kampus 1 - Updated\",\n    \"luas_lahan\": 12000.75,\n    \"kepemilikan\": \"Milik Sendiri\",\n    \"harga_perolehan_lahan\": 6000000000.00\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/lahan/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lahan",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Lahan",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/lahan/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lahan",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Search Lahan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/lahan/search?q=kampus",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lahan",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "kampus"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
